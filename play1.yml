@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: true
+  gather_facts: yes
+  ignore_errors: true
+  vars:
+    user_name: Akins2024
+    group_name: devops
+  vars_files:
+     - variables.yml
+
+  tasks:
+    - name: Check the time
+      command: dateghyhjhh
+#      when: ansible_distribution == 'Akins' or ansible_processor_nproc == 2
+    - name: create user akins
+      user:
+        name: "{{user_name}}"
+        comment: Akins Admin
+    - name: create group
+      group:
+         name: "{{group_name}}"
+         state: present
+    - name: Install package
+      package:
+        name: "{{pkg_name}}"
+        state: present
